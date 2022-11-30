@@ -1,0 +1,73 @@
+<div class="container">
+    <h2 class="pt-4 px-2">Register</h2>
+    <div class="w-75 mx-auto p-2">
+        <div *ngIf="errorMsg" class="alert alert-danger">{{errorMsg}}</div>
+        <form [formGroup]="registerForm" (ngSubmit)='submitRegisterForm(registerForm)'>
+            <label for="first_name">First Name:</label>
+            <input type="text" class='form-control mb-2 mt-1 bg-transparent text-white' formControlName="first_name">
+            <div *ngIf="registerForm.get('first_name')?.errors && registerForm.get('first_name')?.touched">
+                <p *ngIf="registerForm.get('first_name')?.getError('required')" class="alert alert-danger py-1">first
+                    name
+                    is required</p>
+                <p *ngIf="registerForm.get('first_name')?.getError('minlength')" class="alert alert-danger py-1">first
+                    name
+                    Min Length is 3</p>
+                <p *ngIf="registerForm.get('first_name')?.getError('maxlength')" class="alert alert-danger py-1">first
+                    name
+                    Max Length is 10</p>
+            </div>
+
+            <label for="last_name">Last Name:</label>
+            <input type="text" class='form-control mb-2 mt-1 bg-transparent text-white' formControlName="last_name">
+            <div *ngIf="registerForm.get('last_name')?.errors && registerForm.get('last_name')?.touched">
+                <p *ngIf="registerForm.get('last_name')?.getError('required')" class="alert alert-danger py-1">last name
+                    is required</p>
+                <p *ngIf="registerForm.get('last_name')?.getError('minlength')" class="alert alert-danger py-1">last
+                    name
+                    Min Length is 3</p>
+                <p *ngIf="registerForm.get('last_name')?.getError('maxlength')" class="alert alert-danger py-1">last
+                    name
+                    Max Length is 10</p>
+            </div>
+
+
+            <label for="age">Age</label>
+            <input type="number" class='form-control mb-2 mt-1 bg-transparent text-white' formControlName="age">
+            <div *ngIf="registerForm.get('age')?.errors && registerForm.get('age')?.touched">
+                <p *ngIf="registerForm.get('age')?.getError('required')" class="alert alert-danger py-1">age
+                    is required</p>
+                <p *ngIf="registerForm.get('age')?.getError('min')" class="alert alert-danger py-1">Min age is 16</p>
+                <p *ngIf="registerForm.get('age')?.getError('max')" class="alert alert-danger py-1">Max age is 70</p>
+            </div>
+
+            <label for="email">Email</label>
+            <input type="email" class='form-control mb-2 mt-1 bg-transparent text-white' formControlName="email">
+            <div *ngIf="registerForm.get('email')?.errors && registerForm.get('email')?.touched">
+                <p *ngIf="registerForm.get('email')?.getError('required')" class="alert alert-danger py-1">email
+                    is required</p>
+                <p *ngIf="registerForm.get('email')?.getError('email')" class="alert alert-danger py-1">invalid email
+                    format</p>
+            </div>
+
+            <label for="password">Password</label>
+            <input type="password" class='form-control mb-2 mt-1 bg-transparent text-white' formControlName="password">
+            <div *ngIf="registerForm.get('password')?.errors && registerForm.get('password')?.touched">
+                <p *ngIf="registerForm.get('password')?.getError('required')" class="alert alert-danger py-1">password
+                    is required</p>
+                <p *ngIf="registerForm.get('password')?.getError('pattern')" class="alert alert-danger py-1">password
+                    must start with uppercase</p>
+            </div>
+
+            <button [disabled]="registerForm.invalid" class="btn btn-outline-info mt-2">
+                <span *ngIf="isLoading">
+                    <i class="fas fa-spinner fa-spin"></i>
+                </span>
+                <span *ngIf="!isLoading">
+                    Register
+                </span>
+            </button>
+            <p class="py-3">Already have an account? <a routerLink="/login" class="form-return fs-5">Login</a></p>
+
+        </form>
+    </div>
+</div>

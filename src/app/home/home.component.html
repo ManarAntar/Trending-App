@@ -1,0 +1,166 @@
+<section>
+
+    <div id="loading" class='position-fixed top-0 bottom-0 end-0 start-0'>
+        <div class="spinner">
+            <div class="rect1"></div>
+            <div class="rect2"></div>
+            <div class="rect3"></div>
+            <div class="rect4"></div>
+            <div class="rect5"></div>
+        </div>
+    </div>
+    <header class=" d-flex align-items-end pb-4">
+        <div class="container ">
+            <owl-carousel-o [options]="customOptions">
+                <ng-container *ngFor="let movie of allTrendingMovie">
+                    <ng-template carouselSlide [id]="movie.id">
+                        <a [routerLink]="['/movie details',movie.id]" class="mb-3">
+                            <img [src]="imgPrefix+movie.poster_path" class="cursor-pointer">
+                        </a>
+                    </ng-template>
+                </ng-container>
+            </owl-carousel-o>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="row py-4 display-media">
+            <div class="col-md-4 d-flex align-items-center">
+                <div class="w-100">
+                    <div class="brdr w-25 mb-4"></div>
+                    <h2>Trending <br>
+                        <span class="txt-color fw-bold">Movies</span><br>
+                        to Watch Right now
+                    </h2>
+                    <span class="text-muted ">most watched movies by days</span>
+                    <div class="brdr w-100 mt-3 mb-5"></div>
+                </div>
+            </div>
+            <div *ngFor="let movie of trendingMovie" class="col-md-2 col-sm-6 col-xs-6">
+                <a [routerLink]="['/movie details',movie.id]" class="position-relative overflow-hidden">
+                    <div class="media-box position-relative">
+                        <div
+                            class="img-hover d-flex justify-content-center align-items-center h-100 opacity-1 mx-auto top-0 bottom-0 start-0 end-0 position-absolute">
+                        </div>
+                        <span class="badge badge-bg end-0 py-2 px-2 position-absolute"><i class="fa-solid fa-star"></i>
+                            {{movie.vote_average}}</span>
+                        <img class="w-100" [src]="imgPrefix+movie.poster_path" alt="">
+                    </div>
+                    <h3 class="h5 mb-3 mt-2 mediaTitle">{{movie.title}}</h3>
+                </a>
+            </div>
+        </div>
+        <div class="row w-25 mx-auto showMovie showMore cursor-pointer border-0 rounded-pill">
+            <a class="fs-2 fw-bold text-center showBtn  txt-color p-0"><i
+                    class="px-4 py-1 fa-solid txt-color fa-chevron-down "></i></a>
+        </div>
+        <div class="row py-4 display-media justify-content-center moreMovie d-none">
+            <div *ngFor="let movie of allTrendingMovie" class="col-md-2 col-sm-6 col-xs-6">
+                <a [routerLink]="['/movie details',movie.id]" class="position-relative overflow-hidden">
+                    <div class="media-box position-relative">
+                        <div
+                            class="img-hover d-flex justify-content-center align-items-center h-100 opacity-1 mx-auto top-0 bottom-0 start-0 end-0 position-absolute">
+                        </div>
+                        <span class="badge badge-bg end-0 py-2 px-2 position-absolute"><i class="fa-solid fa-star"></i>
+                            {{movie.vote_average}}</span>
+                        <img class="w-100" [src]="imgPrefix+movie.poster_path" alt="">
+                    </div>
+                    <h3 class="h5 mb-3 mt-2 mediaTitle">{{movie.title}}</h3>
+                </a>
+            </div>
+        </div>
+        <div class="row py-5 display-media">
+            <div class="col-md-4 d-flex align-items-center">
+                <div class="w-100">
+                    <div class="brdr w-25 mb-4"></div>
+                    <h2>Trending <br>
+                        <span class="txt-color fw-bold">Tv</span> <br>
+                        to Watch Right now
+                    </h2>
+                    <span class="text-muted ">most watched Tvs by days</span>
+                    <div class="brdr w-100 mt-4 mb-5"></div>
+                </div>
+            </div>
+            <div *ngFor="let tv of trendingTv" class="col-md-2 col-sm-6 col-xs-6">
+                <a [routerLink]="['/tv details',tv.id]" class='position-relative overflow-hidden'>
+                    <div class="media-box position-relative">
+                        <div
+                            class="img-hover d-flex justify-content-center align-items-center h-100 opacity-1 mx-auto h-100 top-0 bottom-0 start-0 end-0 position-absolute">
+                        </div>
+                        <span class='badge badge-bg end-0 py-2 px-3 position-absolute'><i class="fa-solid fa-star"></i>
+                            {{tv.vote_average}}</span>
+                        <img class="w-100" [src]="imgPrefix+tv.poster_path" alt="">
+                    </div>
+                    <h3 class="h5 mb-3 mt-2 mediaTitle">{{tv.name}}</h3>
+                </a>
+            </div>
+        </div>
+        <div class="row w-25 mb-4 mx-auto showMore showTv cursor-pointer border-0 rounded-pill">
+            <a class="fs-2 fw-bold text-center txt-color p-0"><i
+                    class="px-4 py-1 fa-solid txt-color fa-chevron-down "></i></a>
+        </div>
+        <div class="row pb-4 display-media justify-content-center moreTv d-none">
+
+            <div *ngFor="let tv of allTrendingTv" class="col-md-2 col-sm-6 col-xs-6">
+                <a [routerLink]="['/tv details',tv.id]" class="position-relative overflow-hidden">
+                    <div class="media-box position-relative">
+                        <div
+                            class="img-hover d-flex justify-content-center align-items-center h-100 opacity-1 mx-auto top-0 bottom-0 start-0 end-0 position-absolute">
+                        </div>
+                        <span class="badge badge-bg end-0 py-2 px-2 position-absolute"><i class="fa-solid fa-star"></i>
+                            {{tv.vote_average}}</span>
+                        <img class="w-100" [src]="imgPrefix+tv.poster_path" alt="">
+                    </div>
+                    <h3 class="h5 mb-3 mt-2 mediaTitle">{{tv.title}}</h3>
+                </a>
+            </div>
+        </div>
+
+        <div class="row py-5 display-media">
+            <div class="col-md-4 d-flex align-items-center">
+                <div class="w-100">
+                    <div class="brdr w-25 mb-4"></div>
+                    <h2>Trending <br>
+                        <span class="txt-color fw-bold">Artists </span><br>
+                        to Watch Right now
+                    </h2>
+                    <span class="text-muted ">most watched Artists by days</span>
+                    <div class="brdr w-100 mt-4 mb-5"></div>
+                </div>
+            </div>
+            <div *ngFor="let person of trendingPeople" class="col-md-2 col-sm-6 col-xs-6">
+                <a class='overflow-hidden position-relative cursor-pointer'>
+                    <div class="media-box position-relative">
+                        <div
+                            class="img-hover d-flex justify-content-center align-items-center h-100 opacity-1 mx-auto h-100 top-0 bottom-0 start-0 end-0 position-absolute">
+                        </div>
+                        <span class='badge badge-bg end-0 py-2 px-2 position-absolute'><i class="fa-solid fa-star"></i>
+                            {{person.popularity}}</span>
+                        <img class="w-100" [src]="person.profile_path" alt="">
+                    </div>
+                </a>
+                <h3 class="h5 mb-3 mt-2 mediaTitle">{{person.name}}</h3>
+            </div>
+        </div>
+
+        <div class="row w-25 mx-auto mb-4 showMore cursor-pointer border-0 rounded-pill showPeople">
+            <a class="fs-2 fw-bold text-center txt-color p-0"><i
+                    class="px-4 py-1 fa-solid txt-color fa-chevron-down "></i></a>
+        </div>
+        <div class="row py-4 display-media justify-content-center morePeople d-none">
+            <div *ngFor="let person of allTrendingPeople" class="col-md-2 col-sm-6 col-xs-6">
+                <a class='overflow-hidden position-relative cursor-pointer'>
+                    <div class="media-box position-relative">
+                        <div
+                            class="img-hover d-flex justify-content-center align-items-center h-100 opacity-1 mx-auto h-100 top-0 bottom-0 start-0 end-0 position-absolute">
+                        </div>
+                        <span class='badge badge-bg end-0 py-2 px-2 position-absolute'><i class="fa-solid fa-star"></i>
+                            {{person.popularity}}</span>
+                        <img class="w-100" [src]="person.profile_path" alt="">
+                    </div>
+                </a>
+                <h3 class="h5 mb-3 mt-2 mediaTitle">{{person.name}}</h3>
+            </div>
+        </div>
+    </div>
+</section>

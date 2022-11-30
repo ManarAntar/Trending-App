@@ -1,0 +1,63 @@
+<nav class="navbar navbar-expand-lg bg-light navbar-dark px-2 shadow-lg">
+  <div class="container-fluid">
+    <div class="navbar-brand d-flex">
+      <a class="fs-2 fw-bold" routerLink="/home">Noxe</a>
+      <div class="userName fs-4 pt-1 mx-3 fw-bolder d-flex align-items-center" *ngIf="isLogin"><i
+          class="fa-regular fa-user px-1 py-1"></i> Hello {{userInfo.getValue().first_name}}</div>
+    </div>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-lg-0 pt-1">
+        <li class="nav-item">
+          <a class="nav-link " *ngIf="isLogin" routerLink="home"><span class="home">Home</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" *ngIf="isLogin" routerLink="movies"><span> Movies</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" *ngIf="isLogin" routerLink="tv show"><span>Tv shows</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" *ngIf="isLogin" routerLink="artists"><span>Artists</span></a>
+        </li>
+      </ul>
+
+      <ul class="navbar-nav mb-2 mb-lg-0 pt-1">
+        <li class="nav-item d-flex align-items-center text-white mx-2 nav-social">
+          <i class='fab fa-facebook mx-2 f-icon'></i>
+          <i class='fab fa-youtube mx-2'></i>
+          <i class='fab fa-instagram mx-2'> </i>
+          <i class='fab fa-spotify mx-2'></i>
+          <i class='fab fa-soundcloud mx-2'></i>
+        </li>
+
+        <div class="dropdown m-2 pt-1">
+          <button class="btn setting-btn text-white dropdown-toggle" *ngIf="isLogin" routerLink="settings" type="button"
+            data-bs-toggle="dropdown" aria-expanded="false">
+            Settings
+          </button>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" *ngIf="isLogin" routerLink="settings/privacy">Privacy</a></li>
+            <li><a class="dropdown-item" *ngIf="isLogin" routerLink="settings/profile">Profile</a></li>
+          </ul>
+        </div>
+
+        <li class="nav-item">
+          <a class="nav-link" *ngIf="!isLogin" routerLink="login">Login</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" *ngIf="!isLogin" routerLink="register">Register</a>
+        </li>
+        <li class="nav-item py-2 logout-item">
+          <span (click)="logout()" class="nav-link" *ngIf="isLogin">Logout</span>
+        </li>
+      </ul>
+
+    </div>
+
+  </div>
+</nav>

@@ -1,0 +1,29 @@
+<div id="loading"class='position-fixed top-0 bottom-0 end-0 start-0'>
+    <div class="spinner">
+        <div class="rect1"></div>
+        <div class="rect2"></div>
+        <div class="rect3"></div>
+        <div class="rect4"></div>
+        <div class="rect5"></div>
+      </div>
+</div>
+<div class="container">
+    <div class="row py-5">
+        <div class="col-md-4 position-relative">
+            <span class='badge badge-bg end-0 start-6 mx-2 py-2 px-2 position-absolute'><i class="fa-solid fa-star"></i>
+                {{movieDetails.vote_average}}</span>
+            <img [src]="imgPrefix+movieDetails.poster_path" class="w-100" alt="">
+        </div>
+        <div class="col-md-8 pt-3 pb-5">
+            <h2 class="text-center">{{movieDetails.title}}</h2>
+            <h4 class="py-2 text-muted">{{movieDetails.tagline}}</h4>
+            <ul>
+                <li class="my-2">Vote: {{movieDetails.vote_average}}</li>
+                <li class="my-2">Vote Count: {{movieDetails.vote_count}}</li>
+                <li class="my-2">Popularity: {{movieDetails.popularity}}</li>
+                <li class="mt-2">Relese date: {{movieDetails.release_date}}</li>
+            </ul>
+            <p class="text-muted fs-5">{{movieDetails.overview}}</p>
+        </div>
+    </div>
+</div>
