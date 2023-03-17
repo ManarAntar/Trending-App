@@ -14,10 +14,7 @@ export class MoviesComponent implements OnInit {
   pages: number[] = [];
   imgPrefix: string = 'https://image.tmdb.org/t/p/w500';
   term:string='';
-  // labelArr: any[]=[];
-  // dataArr: any[]=[];
-  // xLabels: Label[]=[];
-  // xData: ChartDataSets[]=[];
+  
   constructor(private _MoviesService: MoviesService) { }
 
   ngOnInit(): void {
@@ -36,8 +33,7 @@ export class MoviesComponent implements OnInit {
     this._MoviesService.getTrended('movie').subscribe({
       next: (response) =>{
         this.allTrendingMovie = response.results.slice(0,19);
-        // this.labelArr= ['x', 'y', 'z', 'f', 'h', 'q'];
-        // this.dataArr = [20, 4, 34, 50, 12, 29];
+       
 
       } 
     });

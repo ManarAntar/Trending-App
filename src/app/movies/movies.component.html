@@ -1,12 +1,11 @@
-
-<div id="loading"class='position-fixed top-0 bottom-0 end-0 start-0'>
+<div id="loading" class='position-fixed top-0 bottom-0 end-0 start-0'>
     <div class="spinner">
         <div class="rect1"></div>
         <div class="rect2"></div>
         <div class="rect3"></div>
         <div class="rect4"></div>
         <div class="rect5"></div>
-      </div>
+    </div>
 </div>
 
 <div class="container">
@@ -14,7 +13,7 @@
         <input [(ngModel)]="term" type="search" placeholder='Search by name ...'
             class='text-white mx-auto w-75 form-control bg-transparent'>
     </div>
-    
+
     <div class="row py-2 d-flex justify-content-center media-page">
         <div *ngFor="let movie of trendingMovie|search:term" class="col-lg-2 col-md-4 py-2">
             <a [routerLink]=" ['/movie details',movie.id]" class="position-relative">
@@ -23,27 +22,18 @@
                         class="img-hover-movietv d-flex justify-content-center align-items-center h-100 opacity-1 mx-auto top-0 bottom-0 start-0 end-0 position-absolute">
                     </div>
                     <!-- <div class="position-relative"> -->
-                        <span class="badge badge-bg py-2 px-2 top-0 end-0  position-absolute"><i class=" fa-solid fa-star">
-                            </i> {{movie.vote_average}}</span>
-                        <img class="w-100 " [src]="imgPrefix+movie.poster_path" alt="">
+                    <span class="badge badge-bg py-2 px-2 top-0 end-0  position-absolute"><i class=" fa-solid fa-star">
+                        </i> {{movie.vote_average}}</span>
+                    <img class="w-100 " [src]="imgPrefix+movie.poster_path" alt="">
                     <!-- </div> -->
                 </div>
                 <h3 class="h5 mb-3 mt-2 text-center">{{movie.title}}</h3>
                 <p class="text-muted text-center">{{movie.overview|seemore:30}}</p>
             </a>
-    
+
         </div>
 
-        <div class="chart-wrapper"style="width:30%" >
-            <canvas baseChart
-             [datasets]="xData"
-             [labels]="xLabels"
-             [options]="xOptions"
-             [legend]="xLegend"
-             [chartType]="xType"
-             [plugins]="xPlugins"> 
-            </canvas>
-            </div>
+
     </div>
     <div class="px-5 pb-5 pt-4 d-flex justify-content-center">
         <nav aria-label="...">
