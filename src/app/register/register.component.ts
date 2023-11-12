@@ -17,7 +17,7 @@ export class RegisterComponent implements OnInit {
     last_name: new FormControl(null, [Validators.minLength(3), Validators.maxLength(10), Validators.required]),
     age: new FormControl(null, [Validators.min(16), Validators.max(70), Validators.required]),
     email: new FormControl(null, [Validators.email, Validators.required]),
-    password: new FormControl(null, [Validators.required,Validators.pattern('^[A-Z][a-z]{3,8}')])
+    password: new FormControl(null, [Validators.required,Validators.pattern(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/)])
   })
   submitRegisterForm(registerForm: FormGroup) {
     this.isLoading=true;

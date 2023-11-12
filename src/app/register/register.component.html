@@ -54,8 +54,11 @@
             <div *ngIf="registerForm.get('password')?.errors && registerForm.get('password')?.touched">
                 <p *ngIf="registerForm.get('password')?.getError('required')" class="alert alert-danger py-1">password
                     is required</p>
-                <p *ngIf="registerForm.get('password')?.getError('pattern')" class="alert alert-danger py-1">password
-                    must start with uppercase</p>
+                <div *ngIf="registerForm.get('password')?.getError('pattern')" class="alert alert-danger py-1">
+                    <p> Invalid Password</p>
+                    <p>Minimum eight characters, at least one uppercase letter, one lowercase letter, one number and one
+                        special character</p>
+                </div>
             </div>
 
             <button [disabled]="registerForm.invalid" class="btn btn-outline-info mt-2">

@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { AuthService } from '../auth.service';
 import { Router } from '@angular/router';
-
+import { AuthService } from '../auth.service';
 
 @Component({
   selector: 'app-login',
@@ -14,7 +13,7 @@ export class LoginComponent implements OnInit {
   isLoading:boolean=false;
   loginForm: FormGroup = new FormGroup({
     email: new FormControl(null, [Validators.email, Validators.required]),
-    password: new FormControl(null, [Validators.required, Validators.pattern('^[A-Z][a-z]{3,8}')])
+    password: new FormControl(null, [Validators.required, Validators.pattern(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/)])
   })
   loginSubmitForm(loginForm: FormGroup) {
     if (loginForm.valid) {
