@@ -13,17 +13,17 @@ import { TvDetailsComponent } from './tv-details/tv-details.component';
 import { TvComponent } from './tv/tv.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: 'login', pathMatch: 'full' },
-  { path: 'home', canActivate:[AuthGuard] , component: HomeComponent,title:'Home' },
-  { path: 'about', canActivate:[AuthGuard] , component: AboutComponent },
-  { path: 'movies', canActivate:[AuthGuard] , component: MoviesComponent,title:'Movies' },
-  { path: 'movie details/:id', canActivate:[AuthGuard] , component: MovieDetailsComponent,title:'Movie details' },
-  { path: 'artists', canActivate:[AuthGuard] , component: PeopleComponent,title:'Artists' },
-  { path: 'tv show', canActivate:[AuthGuard] , component: TvComponent,title:'Tv Shows' },
-  { path: 'tv details/:id',canActivate:[AuthGuard],component:TvDetailsComponent,title:'Tv show details'},
-  { path: 'login', component: LoginComponent,title:'Login' },
-  { path: 'register', component: RegisterComponent,title:'Register' },
-  { path: 'settings',canActivate:[AuthGuard], loadChildren: ()=> import('./settings/settings.module').then((x)=>x.SettingsModule),title:'Settings'},
+  { path: '', redirectTo: 'home', pathMatch: 'full' },
+  { path: 'home', component: HomeComponent,title:'Home' },
+  { path: 'about', component: AboutComponent },
+  { path: 'movies', component: MoviesComponent,title:'Movies' },
+  { path: 'movie details/:id', component: MovieDetailsComponent,title:'Movie details' },
+  { path: 'artists' ,component: PeopleComponent,title:'Artists' },
+  { path: 'tv show', component: TvComponent,title:'Tv Shows' },
+  { path: 'tv details/:id',component:TvDetailsComponent,title:'Tv show details'},
+  // { path: 'login', component: LoginComponent,title:'Login' },
+  // { path: 'register', component: RegisterComponent,title:'Register' },
+  { path: 'settings', loadChildren: ()=> import('./settings/settings.module').then((x)=>x.SettingsModule),title:'Settings'},
   { path: '**', component: NotfoundComponent }
 ];
 
