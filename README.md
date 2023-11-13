@@ -1,6 +1,7 @@
 # MovieApp
 
-Live Demo:  https://trending-app-git-fix-unableauthenicationmanarantar.vercel.app
+Live Demo: https://trending-app-git-fix-unableauthenication-manarantar.vercel.app/#/home
+
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.0.6.
 
